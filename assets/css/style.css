@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-/* Base styles and container setup remain mostly the same for a clean look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Base styles for the entire page */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0d0d0d;
-    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0c0c0c;
+    color: #e8e8e8;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,18 +15,20 @@ body {
 }
 
 .container {
-    background-color: #1e1e1e;
+    background-color: #1a1a1a;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     width: 90%;
     max-width: 800px;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
+/* Heading and Title styles */
 h2 {
     font-size: 2.5em;
-    color: #00e676; 
+    color: #00e676;
     text-align: center;
     margin-bottom: 10px;
     font-weight: 700;
@@ -39,11 +42,11 @@ h2 {
     font-weight: 400;
 }
 
-/* Video preview container with interactive elements */
+/* Video preview container styling */
 .video-preview-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;
+    padding-bottom: 56.25%;
     background-color: #000;
     border-radius: 8px;
     overflow: hidden;
@@ -66,6 +69,7 @@ h2 {
     display: block;
 }
 
+/* Overlay and play button styling */
 .video-overlay {
     position: absolute;
     top: 0;
@@ -78,10 +82,14 @@ h2 {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 1;
     transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
 }
 
-.video-preview-container:hover .video-overlay {
+/* Hides the overlay and play button when the video is played */
+.video-preview-container:hover .video-overlay,
+.video-preview-container.playing .video-overlay {
     opacity: 0;
+    visibility: hidden;
 }
 
 .play-button {
@@ -105,7 +113,7 @@ h2 {
     transform: scale(1.1);
 }
 
-/* New: Video details section */
+/* Video details section */
 .video-details {
     text-align: center;
     margin-top: 30px;
@@ -113,34 +121,9 @@ h2 {
 
 .video-details h3 {
     font-size: 1.8em;
-    color: #e0e0e0;
+    color: #e8e8e8;
     margin-bottom: 5px;
-}
-
-.video-details p {
-    font-size: 1em;
-    color: #a0a0a0;
-    margin-bottom: 20px;
-}
-
-/* Button style updated for better contrast and hover effect */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #00e676;
-    color: #121212;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    background-color: #00c853;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4);
+    font-weight: 600;
 }
 
 /* Responsive adjustments for smaller screens */
